@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: application/json');
+header('encoding: utf-8');
 ?>
 {
   "applinks": {
