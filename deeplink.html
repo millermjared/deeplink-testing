@@ -3,7 +3,7 @@
 <script lang="javascript">
 function openModal(linkUrl) {
   var modalRequest = {'action': 'showModal', 'value': linkUrl}
-  window.webkit.messageHandlers.notifyContainer(modalRequest)
+  window.webkit.messageHandlers.notifyContainer.postMessage(modalRequest)
 }
 </script>
 </head>
