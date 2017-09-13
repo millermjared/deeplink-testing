@@ -2,12 +2,12 @@
 
 <script lang="javascript">
 function openModal(linkUrl) {
-  var modalRequest = {'mode': 'modal', 'value': linkUrl}
+  var modalRequest = {'mode': 'modal', 'url': linkUrl}
   window.webkit.messageHandlers.notifyContainer.postMessage(modalRequest)
 }
 
 function showVideo(linkUrl) {
-  var modalRequest = {'mode': 'playMedia', 'value': linkUrl}
+  var modalRequest = {'mode': 'playMedia', 'url': linkUrl}
   window.webkit.messageHandlers.notifyContainer.postMessage(modalRequest)
 }
 </script>
