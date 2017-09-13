@@ -6,8 +6,8 @@ function openModal(linkUrl) {
   window.webkit.messageHandlers.notifyContainer.postMessage(modalRequest)
 }
 
-function showVideo(linkUrl) {
-  var modalRequest = {'mode': 'playMedia', 'url': linkUrl}
+function showVideo(linkUrl, title) {
+  var modalRequest = {'mode': 'playMedia', 'url': linkUrl, 'title': title}
   window.webkit.messageHandlers.notifyContainer.postMessage(modalRequest)
 }
 </script>
@@ -15,7 +15,7 @@ function showVideo(linkUrl) {
 <body>
   <h1>Game of Thrones Videos Widget</h1>
 <ul>
-<li><h2><a href="#" onclick="javascript:showVideo('https://content.jwplatform.com/manifests/9pDB0zHg.m3u8?exp=1505318630&sig=dc0b407fd86cef78373271f4ae7196b5')">Bunny</a></h2></li>
+<li><h2><a href="#" onclick="javascript:showVideo('https://content.jwplatform.com/manifests/9pDB0zHg.m3u8?exp=1505318630&sig=dc0b407fd86cef78373271f4ae7196b5', 'Fireworks at the Philidelphia Office')">Bunny</a></h2></li>
 <li><h2><a href="/next.html">Next</a></h2></li>
 <li><h2><a href="#" onclick="javascript:openModal('https://deeplink-testing.herokuapp.com/estimate.pdf')">Test PDF</a></h2></li>
 <li><h2><a href="#" onclick="javascript:openModal('https://www.youtube.com/watch?v=EI0ib1NErqg')">The Real War</a></h2></li>
