@@ -2,7 +2,7 @@
 
 <script lang="javascript">
 function openModal(linkUrl) {
-  var modalRequest = {'mode': 'modal', 'url': linkUrl}
+  var modalRequest = {'mode': 'fullscreen', 'url': linkUrl}
   window.webkit.messageHandlers.notifyContainer.postMessage(modalRequest)
 }
 
