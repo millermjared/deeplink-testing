@@ -1,8 +1,8 @@
 <head>
 
 <script lang="javascript">
-function openModal(linkUrl) {
-  var modalRequest = {'mode': 'fullscreen', 'url': linkUrl}
+function openModal(linkUrl, title) {
+  var modalRequest = {'mode': 'fullscreen', 'url': linkUrl, 'title': title}
   window.webkit.messageHandlers.notifyContainer.postMessage(modalRequest)
 }
 
@@ -17,7 +17,7 @@ function showVideo(linkUrl, title) {
 <ul>
 <li><h2><a href="#" onclick="javascript:showVideo('https://content.jwplatform.com/manifests/9pDB0zHg.m3u8?exp=1505318630&sig=dc0b407fd86cef78373271f4ae7196b5', 'Fireworks at the Philidelphia Office')">Bunny</a></h2></li>
 <li><h2><a href="/next.html">Next</a></h2></li>
-<li><h2><a href="#" onclick="javascript:openModal('https://deeplink-testing.herokuapp.com/estimate.pdf')">Test PDF</a></h2></li>
+<li><h2><a href="#" onclick="javascript:openModal('https://deeplink-testing.herokuapp.com/estimate.pdf', 'This is my PDF. There are any like it but this is mine.')">Test PDF</a></h2></li>
 <li><h2><a href="#" onclick="javascript:openModal('https://www.youtube.com/watch?v=EI0ib1NErqg')">The Real War</a></h2></li>
 <li><h2><a href="#" onclick="javascript:openModal('https://www.youtube.com/watch?v=yx9dRL1BCCQ')">The Frozen Lake</a></h2></li>
 <li><h2><a href="#" onclick="javascript:openModal('https://www.youtube.com/watch?v=ZxEpB8yooHQ')">The Night King and the Dragon</a></h2></li>
