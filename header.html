@@ -1,0 +1,32 @@
+<head>
+
+<meta
+     name='viewport'
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+/>
+
+<style type="text/css">
+* { -webkit-user-select: none; -webkit-touch-callout: none; }
+</style>
+
+<script lang="javascript">
+function openModal(linkUrl, title) {
+  var modalRequest = {'mode': 'fullscreen', 'url': linkUrl, 'title': title}
+  window.webkit.messageHandlers.notifyContainer.postMessage(modalRequest)
+}
+
+function showMenu() {
+  var menuRequest = {'mode': 'menuOpen'}
+  window.webkit.messageHandlers.notifyContainer.postMessage(menuRequest)
+}
+
+function closeMenu() {
+  var menuRequest = {'mode': 'menuOpen'}
+  window.webkit.messageHandlers.notifyContainer.postMessage(menuRequest)
+}
+
+</script>
+</head>
+<body style="background-color:lightgray;">
+<image src="bookshelf_off_canvas_menu_icon.png" onclick="javascript:menuOpen()"></image>
+</body>
