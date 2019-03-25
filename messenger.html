@@ -23,6 +23,18 @@ function showSupportScreen() {
   window.webkit.messageHandlers.notifyContainer.postMessage(request)
 }
 
+var unreadCount = 0;
+function updateUnreadMessageCount() {
+  unreadCount += 1;
+  var request = {'mode': 'whatever - it doesnt matter', 'header': {'barkerCount':unreadCount}};
+  window.webkit.messageHandlers.notifyContainer.postMessage(request);
+}
+
+function requestAuthToken() {
+  var request = {'mode': 'MESSENGER_AUTH_TOKEN_REQUESTED'}
+  window.webkit.messageHandlers.notifyContainer.postMessage(request);
+}
+
 function nativeWrapperNotification(data) {
     var parsedJSON = JSON.parse(data);
     alert(parsedJSON.MESSENGER_AUTH_TOKEN);
@@ -31,6 +43,7 @@ function nativeWrapperNotification(data) {
 </script>
 </head>
 <body>
+  <a href="#" onClick="javascript:showSpinner()">request an auth token</a><br/>
 <a href="#" onClick="javascript:showSpinner()">click me for spinner</a><br/>
 <a href="#" onClick="javascript:showSupportScreen()">click me for support screen</a>
 </body>
