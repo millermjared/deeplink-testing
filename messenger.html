@@ -1,0 +1,36 @@
+<head>
+
+<meta
+     name='viewport'
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+/>
+
+<script lang="javascript">
+
+function hideSpinner() {
+  var modalRequest = {'mode': 'dismissSpinner'}
+  window.webkit.messageHandlers.notifyContainer.postMessage(modalRequest)
+}
+
+function showSpinner() {
+  var modalRequest = {'mode': 'showSpinner'}
+  window.webkit.messageHandlers.notifyContainer.postMessage(modalRequest)
+  window.setTimeout(hideSpinner, 5000)
+}
+
+function showSupportScreen() {
+  var request = {'mode': 'showSupportScreen'}
+  window.webkit.messageHandlers.notifyContainer.postMessage(request)
+}
+
+function nativeWrapperNotification(data) {
+    var parsedJSON = JSON.parse(data);
+    alert(parsedJSON.MESSENGER_AUTH_TOKEN);
+}
+
+</script>
+</head>
+<body>
+<a href="#" onClick="javascript:showSpinner()">click me for spinner</a><br/>
+<a href="#" onClick="javascript:showSupportScreen()">click me for support screen</a>
+</body>

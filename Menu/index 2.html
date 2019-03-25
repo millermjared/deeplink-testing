@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+      html {
+        height: 100%;
+      }
+      body {
+        min-height: 100%;
+        background: gray;
+      }
+
+        .toolbar
+        {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+        }
+
+        .toolbar ul li
+        {
+            display: table-row;
+            height: 40px;
+            list-style-type: none;
+            margin: 10px;
+            vertical-align: middle;
+            background: gray;
+            color: white;
+            font-family: 'HelveticaNeue-Medium', 'Helvetica Neue Medium', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+            font-size: 20px;
+        }
+    </style>
+  <script lang="javascript">
+
+  function getResult(dataString) {
+    var data = JSON.parse(dataString)
+    myFunction(data)
+  }
+
+  function loadMenu() {
+    var url = "https://app-1531413574.000webhostapp.com/menu-items.json";
+
+    var modalRequest = {'mode': 'GET', 'url': "https://app-1531413574.000webhostapp.com/menu-items.json"}
+    window.webkit.messageHandlers.notifyContainer.postMessage(modalRequest)
+  }
+
+function myFunction(arr) {
+    var out = "";
+    var i;
+    for(i = 0; i < arr.length; i++) {
+        out += '<li>' + arr[i] + '</li>'; 
+    }
+    document.getElementById('menu').innerHTML = out;
+}  
+
+  function signout() {
+    var modalRequest = {'mode': 'signout'}
+    window.webkit.messageHandlers.notifyContainer.postMessage(modalRequest)
+  }
+
+function dumpService() {
+    document.getElementById('service')
+}
+  </script>    
+
+</head>
+<body>
+<!--  <iframe id="service" src="https://app-1531413574.000webhostapp.com/menu-items.json"/> -->
+    <div onclick="javascript:dumpService()" class="toolbar">
+        <ul id="menu">
+<!--            <li>Insights</li>
+            <li>Yahoo Finance</li>
+            <li>Google Finance</li>
+            <li class="button" onclick="signout()">Sign Out</li> -->
+        </ul>
+    </div>
+</body>
+  <script lang="javascript">
+(function() {
+  loadMenu()
+
+  let data = ["test", "one"];
+  myFunction(data)
+})();  
+  </script>    
+</html>

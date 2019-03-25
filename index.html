@@ -1,0 +1,73 @@
+<html manifest="header.manifest">
+<head>
+
+<meta
+     name='viewport'
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+/>
+
+<style type="text/css">
+* { -webkit-user-select: none; -webkit-touch-callout: none; }
+
+#menu-div {
+  display: inline-flex;
+  align-items: center;
+}
+
+#menu-icon {
+  margin: 10px;
+}
+
+.welcome {
+    font-family: 'HelveticaNeue-Medium', 'Helvetica Neue Medium', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    font-size: 17px;
+    color: #005284;
+    margin: 10px;
+}
+
+#search {
+  height: 25px;
+}
+
+</style>
+
+<script lang="javascript">
+function openModal(linkUrl, title) {
+  var modalRequest = {'mode': 'fullscreen', 'url': linkUrl, 'title': title}
+  window.webkit.messageHandlers.notifyContainer.postMessage(modalRequest)
+}
+
+function toggleMenu() {
+  var menuRequest = {'mode': 'toggleMenu'}
+  window.webkit.messageHandlers.notifyContainer.postMessage(menuRequest)
+  // toggleMenu = closeMenu
+}
+
+// function closeMenu() {
+//   var menuRequest = {'mode': 'menuClose'}
+//   window.webkit.messageHandlers.notifyContainer.postMessage(menuRequest)
+//   toggleMenu = showMenu
+// }
+
+// var toggleMenu = showMenu
+
+function setUserName(name) {
+  let nameElement = document.getElementById('userName')
+  nameElement.innerHTML = name
+}
+
+(function() {
+  var modalRequest = {'mode': 'documentReady'}
+  window.webkit.messageHandlers.notifyContainer.postMessage(modalRequest)  
+})();
+
+</script>
+</head>
+<body style="background-color:lightGray;">
+<div id="menu-div">
+<image id="menu-icon" src="menu_icon.png" onclick="javascript:toggleMenu()"></image>
+<h3 class="welcome"> Welcome Back, <span id="userName" onclick="javascript:setUserName('Matt-test')">Joe Schmuckatelli</span>!</h3>
+<input name="Search" type="text" id="search" placeholder="What's your programming question ? be specific." />
+</div>
+</body>
+</html>
