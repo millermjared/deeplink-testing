@@ -37,13 +37,13 @@ function requestAuthToken() {
 
 function nativeWrapperNotification(data) {
     var parsedJSON = JSON.parse(data);
-    alert(parsedJSON.MESSENGER_AUTH_TOKEN);
+    document.getElementById('token').value = parsedJSON.MESSENGER_AUTH_TOKEN;
 }
 
 </script>
 </head>
 <body>
-  <a href="#" onClick="javascript:requestAuthToken()">request an auth token</a><br/>
+  <a href="#" onClick="javascript:requestAuthToken()">request an auth token</a><input type="text" id="token"/><br/>
 
 <a href="#" onClick="javascript:updateUnreadMessageCount()">update unread count</a><br/>
 
