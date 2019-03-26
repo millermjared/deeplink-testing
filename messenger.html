@@ -37,7 +37,8 @@ function requestAuthToken() {
 
 function nativeWrapperNotification(data) {
     var parsedJSON = JSON.parse(data);
-    document.getElementById('token').value = parsedJSON.MESSENGER_AUTH_TOKEN;
+    document.getElementById('showHide').value = document.getElementById('showHide').value + ' ' + parsedJSON.visible;
+
 }
 
 updateUnreadMessageCount();
@@ -45,7 +46,8 @@ updateUnreadMessageCount();
 </script>
 </head>
 <body>
-  <a href="#" onClick="javascript:requestAuthToken()">request an auth token</a><input type="text" id="token"/><br/>
+  <input type="text" id="showHide"/><br/>
+<a href="#" onClick="javascript:requestAuthToken()">request an auth token</a><input type="text" id="token"/><br/>
 
 <a href="#" onClick="javascript:updateUnreadMessageCount()">update unread count</a><br/>
 
